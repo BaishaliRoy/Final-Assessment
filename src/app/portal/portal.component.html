@@ -1,0 +1,97 @@
+<div class="row container-fluid" style="width: 100%; height: 100%;">
+  <div class="col-12 text-center pb-2 mx-2 my-2">
+      <!---->
+  </div>
+  <!-- left-->
+  <div class="col-lg-3"> 
+    <div class="row">
+      <div class="container ">
+        <h1 class="text-center text-light ">Whatz up Weather</h1>
+        <form  class="my-2 city form-container">
+          <input type="text" class="form-control" #city (keydown.enter)="getCity(city)" placeholder="your city please..">
+      </form>
+        <div class="card shadow-lg rounded ">
+            
+          
+            <div class="text-uppercase text-center text-muted">
+                <div class=" my-city my-3">{{myCity}}</div>
+                <div class="my-weather my-3">{{myWeather}}</div>
+                <div class=" my-4 display-4">
+                    <span class="my-temp">{{myTemp}}</span>
+                    <span>&deg;C</span>
+                </div>
+            </div>
+            <div class="icon bg-light my-4 ">
+
+            </div>
+            <img src="../../assets/assessment.jpg" class="time card-image-top">
+        </div>
+        
+    </div>
+    </div>
+  </div>
+    <!-- Centre-->
+    <div class="col-lg-6">
+      <div class="row">
+      </div>    
+      <div class="row">
+
+        <div class="col-12 text-white text-center rounded  pb-3 " style="background-color:dimgrey;font-size: x-large;">
+            TEAM MEMBERS SUMMARY
+        </div>
+        <div class="col-12">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">Team #</th>
+                <th scope="col">Team Name</th>
+                <th scope="col">Head Count</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let team of allTeamsList">
+              <tr>
+                <td>{{team.teamId}}</td>
+                <td>{{team.teamName}}</td>
+                <td>{{team.headCount}}</td>
+              </tr>    
+            </tbody>
+          </table>
+        </div>
+      </div>  
+  </div>
+  <!-- Right-->
+  <div class="col-lg-3">
+    <div class="row">
+      <div class="col-11 mx-2 pb-3" >
+        <h1 class="text-center text-light ">Know The Skills</h1>
+      </div>
+    </div>
+    <div class="col-12 text-center pb-2 mx-2 my-2">
+      
+    </div>
+    <div class="row">
+      <div class="col-11 pb-2">
+        <div class="accordion" id="accordionExample">
+          <div *ngFor="let vax of vaxList, index as i" class="card">
+            <div class="card-header" id="card1">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" 
+                [attr.data-target]="'#collapse'+ i" aria-expanded="true" >
+                 {{vax.vaxName}}
+                </button>
+              </h2>
+            </div>
+        
+            <div [id]="'collapse'+i" class="collapse" aria-labelledby="card1" data-parent="#accordionExample">
+              {{vax.vaxDetails}}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+

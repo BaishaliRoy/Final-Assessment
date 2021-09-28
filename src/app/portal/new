@@ -1,0 +1,158 @@
+<div class="row container-fluid">
+    <!-- left-->
+    <div class="col-lg-3 bg-light">
+      <div class="row">
+        <div class="col-11 text-white text-center mx-2 rounded pb-3" style="background-color: dimgrey;">
+          BULLETIN BOARD
+        </div>
+        <div class="col-12 text-center pb-2 mx-2 my-2">
+        
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11 mx-2">
+          <button type="button" class="btn btn-info btn-sm" disabled>Vaccine</button>
+        </div>
+        <div class="col-11 text-center mx-2 rounded pb-3">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              NO. OF TEAM MEMBERS
+              <span class="badge badge-secondary badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+             TOTAL COST OF ALL PROJECTS
+              <span class="badge badge-primary badge-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              PENDING TASKS
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              PIPELINE PROJECTS
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11 mx-2">
+          <button type="button" class="btn btn-info btn-sm" disabled>Vaccine</button>
+        </div>
+        <!-- <div class="col-11 text-center mx-2 rounded pb-3">
+          <ul *ngFor="let client of allClientsList" class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+             {{client}}
+            </li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+    <!-- Centre-->
+    <div class="col-lg-6  bg-light">
+        <div class="row">
+          <!-- <div class="col-11 text-white mx-2 rounded pb-1" style="background-color: rgb(216, 206, 206);">
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle my-2" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               All Projects
+              </a>
+              <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a *ngFor="let project of allProjectsList"class="dropdown-item" href="#">{{project.name}}</a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <!-- <div class="row">
+          <div class="col-11 text-white text-center rounded mx-2 pb-2 my-1" style="background-color:dodgerblue;">
+              PROJECT BRIEFING
+          </div>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>Project Cost</td>
+              
+                <td>$21,13,507</td>
+              </tr>
+              <tr>
+                <td>Current Expenditure</td>
+              
+                <td>$21,13,507</td>
+              </tr>
+              <tr>
+                <td>Available Funds</td>
+              
+                <td>$21,13,507</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>   -->
+        <div class="row">
+          <div class="col-11 text-white text-center rounded mx- pb-2 my-1" style="background-color:dodgerblue;">
+              TEAM MEMBERS SUMMARY
+          </div>
+          <div class="col-11 mx-2">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Region</th>
+                  <th scope="col">Team</th>
+                  <th scope="col">Head Count</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let team of allTeamsList">
+                <tr>
+                  <td>{{team.teamId}}</td>
+                  <td>{{team.teamName}}</td>
+                  <td>{{team.headCount}}</td>
+                </tr>    
+              </tbody>
+            </table>
+          </div>
+        </div>  
+    </div>
+    <!-- Right-->
+    <div class="col-lg-3 bg-light">
+      <div class="row">
+        <div class="col-12 text-white text-center rounded mx-2 pb-3" style="background-color:dodgerblue;">
+         KNOW YOUR VACCINE
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 pb-2">
+          <div class="accordion" id="accordionExample">
+            <div *ngFor="let vax of vaxList, index as i" class="card">
+              <div class="card-header bg-secondary" id="card1">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left text-white" type="button" data-toggle="collapse" 
+                  [attr.data-target]="'#collapse'+ i" aria-expanded="true" >
+                   {{vax.vaxName}}
+                  </button>
+                </h2>
+              </div>
+          
+              <div [id]="'collapse'+i" class="collapse" aria-labelledby="card1" data-parent="#accordionExample">
+                {{vax.vaxDetails}}
+                <!-- <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let mem of team.member">
+                    <tr>
+                      <td>{{mem.id}}</td>
+                      <td>{{mem.name}}</td>
+                      <td>{{mem.status}}</td>
+                    </tr>    
+                  </tbody>
+                </table> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

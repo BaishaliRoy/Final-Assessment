@@ -1,0 +1,24 @@
+<div *ngIf="isRender" class="row my-4">
+    <div class="col-4 mx-2">
+      <button type="button" class="btn btn-info btn-sm" disabled>TEAM DETAILS</button>
+    </div>
+    <div class="col-11 text-center mx-2 rounded pb-3">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          NAME OF THE TEAM
+          <span class="badge badge-secondary badge-pill">{{selectedTeam.teamName}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+         ID # OF THE TEAM
+          <span class="badge badge-primary badge-pill">{{selectedTeam.teamId}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          HEAD COUNT
+          <span class="badge badge-primary badge-pill">{{selectedTeam.headCount}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+

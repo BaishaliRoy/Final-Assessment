@@ -1,0 +1,123 @@
+<div class="row ">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-3 my-4  ">
+      <div *ngIf="errorMessage" class="alert alert-warning" role="alert">
+        <p>{{errorMessage}}</p>
+      </div>
+        <table class="table ">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">TEAM</th>
+                <!-- <th scope="col">Total Count</th>
+                <th scope="col">Unavailable</th> -->
+                <th scope="col">ACTIONS</th>
+              </tr>
+            </thead>  
+            <tbody *ngFor="let team of allTeamsList, index as i">
+              <tr>
+                <!-- <td (click)="onSelectTeam(i)" style="cursor: pointer;" class="table-hover highlight">{{team.region}}</td> -->
+                <td>
+                <button type="button" class="btn btn-light" (click)="onSelectTeam(i)" style="cursor: pointer;">{{team.teamName}}</button>
+                </td>
+                <!-- <td>{{team.teamId}}</td>
+                <td>{{team.headCount}}</td>      -->
+                <td>
+                    <button type="button" class="btn btn btn-warning mr-3" data-toggle="modal"
+                    data-target="#exampleModal" (click)="onEdit(i)">Edit</button>
+                    <button type="button" class="btn btn btn-danger" (click)="onDelete(i)">X</button>
+                </td>      
+              </tr>
+    <!-- Edit Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Panel</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                  <label for="tname">Name</label>
+                                  <input type="text" class="form-control" id="tname" name="tname" [(ngModel)]="editTeam.teamName">
+                                </div>
+                                <div class="form-group">
+                                  <label for="tcount">ID #</label>
+                                  <input type="text" class="form-control" id="tcount" name="tcount" [(ngModel)]="editTeam.teamId">
+                                </div>
+                                <div class="form-group">
+                                  <label for="ucount">Head Count</label>
+                                  <input type="number" class="form-control" id="ucount"name="ucount" [(ngModel)]="editTeam.headCount">
+                                </div>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="onSaveChanges()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+  <!-- Edit Modal End -->
+            </tbody>
+          </table>
+          <button class="btn btn-primary btn-lg" [disabled]="errorMessage || isLoading" data-toggle="modal" data-target="#createNewModal">Create New</button>
+    </div>
+    <!--div class="col-lg-4"></div-->
+    <div class="col-lg-4 my-4 mx-6">
+      <router-outlet></router-outlet>
+      <!-- <div class="col-lg-4"></div>
+      <div class="col-lg-4 pb-2">
+
+      </div> -->
+    <!-- <div class="col-lg-4"></div> -->
+    </div>
+</div>
+<div class="row">
+    <!--bottom row-->
+</div>
+<!-- Create New Modal -->
+<div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModal" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="createNewModal">New Team</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                    <label for="nregion">Team Name</label>
+                    <input type="text" class="form-control" id="nregion" name="nregion" [(ngModel)]="newTeam.teamName">
+                  </div>
+                  <div class="form-group">
+                    <label for="ncount">Team ID</label>
+                    <input type="text" class="form-control" id="ncount" name="ncount" [(ngModel)]="newTeam.teamId" >
+                  </div>
+                  <div class="form-group">
+                    <label for="nucount">Head Count</label>
+                    <input type="number" class="form-control" id="nucount"name="nucount" [(ngModel)]="newTeam.headCount" >
+                  </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="onCreate()">Save changes</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Create New Modal End -->
+<!-- Loader-->
+<div *ngIf="isLoading" class="overlay d-flex justify-content-center align-items-center">
+  <div class="">  
+    <div class="spinner-border " role="status" style="width: 3rem; height: 3rem; z-index: 10;">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+<!-- Loader End -->
